@@ -17,18 +17,20 @@
 */
 
 let board = [
-    ['_', '_', '_'],
-    ['_', '_', '_'],
-    ['_', '_', '_']
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
 ]
 
 export function printBoard(board) {
     for (const row of board) { // loop array of 3 arrays
         const rowString = row.map(cell => ` ${cell} `).join('|'); // map each cell to a string with spaces and join with '|'
         console.log(rowString); // print the row string
-        console.log('-----------'); // print separator after each row
+        if (row !== board[board.length - 1]) {
+            console.log('-----------'); // print separator after each row
+        }
     }
-    board.pop(); // remove the last separator to avoid extra line
+  // remove the last separator to avoid extra line
 };
 console.log(printBoard(board));
 
@@ -38,5 +40,12 @@ console.log(printBoard(board));
         - return false if there are still moves that can be made
 */
 export function checkIfNoMovesLeft(board) {
-
+    for (let row of board) {
+        for (let cell of row) {
+            if (cell === '_') {
+                return false;
+            }
+        }
+    }
+    return true;
 }
