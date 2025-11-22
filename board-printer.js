@@ -15,8 +15,22 @@
         =================
     Test your function by calling it with an example tic-tac-toe board.
 */
+
+let board = [
+    ['_', '_', '_'],
+    ['_', '_', '_'],
+    ['_', '_', '_']
+]
+
 export function printBoard(board) {
-}
+    for (const row of board) { // loop array of 3 arrays
+        const rowString = row.map(cell => ` ${cell} `).join('|'); // map each cell to a string with spaces and join with '|'
+        console.log(rowString); // print the row string
+        console.log('-----------'); // print separator after each row
+    }
+    board.pop(); // remove the last separator to avoid extra line
+};
+console.log(printBoard(board));
 
 /*
     Given a tic-tac-toe board (an array of arrays),
@@ -24,4 +38,5 @@ export function printBoard(board) {
         - return false if there are still moves that can be made
 */
 export function checkIfNoMovesLeft(board) {
+
 }
