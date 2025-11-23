@@ -23,16 +23,15 @@ let board = [
 ]
 
 export function printBoard(board) {
-    for (const row of board) { // loop array of 3 arrays
-        const rowString = row.map(cell => ` ${cell} `).join('|'); // map each cell to a string with spaces and join with '|'
+    for (let i = 0; i < board.length; i++) { // loop array of 3 arrays
+        const rowString = board[i].map(cell => ` ${cell} `).join('|'); // map each cell to a string with spaces and join with '|'
         console.log(rowString); // print the row string
-        if (row !== board[board.length - 1]) {
-            console.log('-----------'); // print separator after each row
+        if (i < board.length - 1) {
+            console.log('-----------'); // print separator after each row except the last
         }
     }
-  // remove the last separator to avoid extra line
 };
-console.log(printBoard(board));
+printBoard(board);
 
 /*
     Given a tic-tac-toe board (an array of arrays),
